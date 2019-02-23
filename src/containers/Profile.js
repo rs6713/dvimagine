@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import '../App.css';
+import '../App.scss';
 
 /*
 name, image, needs checkboxes?, phone, email, address, bio, username
@@ -43,7 +43,7 @@ class Profile extends Component {
 
   render() {
     return (
-      <div className="Page">
+      <div className="Page addProfile">
         <h5>
           I am a user profile
           </h5>
