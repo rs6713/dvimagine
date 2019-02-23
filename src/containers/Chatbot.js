@@ -142,7 +142,7 @@ class Chatbot extends Component{
     var chatbox=chat.slice(0,this.state.index+1)
     console.log(this.state.profile)
     return (
-      
+      <div id="phone">
       <div class="chatbot">
         
         <div id="chatContainer" 
@@ -229,7 +229,7 @@ class Chatbot extends Component{
         </div>
         </div>
       </div>
-      
+      </div>
     );
   }
 

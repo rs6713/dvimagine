@@ -4,15 +4,28 @@ $main: #F6C014;
 $answer: #85AFC3;//#C3BD23;
 $dark: #908D45;
 
+#phone{
+  height:100%;
+  width:100%;
+  display:block;
+  background-image:url("./assets/phone.png");
+  background-size: auto 130%;
+  background-repeat: no-repeat;
+  background-position: center center;
+  box-sizing:border-box;
+  padding:2% 35%;
+  overflow:hidden;
+}
 
 .chatbot{
   background-color: #e0F5FF;//#EAFAFF;
   text-align:center;
   position:relative;
   color:black;
+  overflow:hidden;
   height:100%;
   width:100%;
-  padding:2em 6em 0em 6em;
+  padding:2em 1em 0em 1em;
   box-sizing:border-box;
   display:flex;
   flex-direction:vertical;
