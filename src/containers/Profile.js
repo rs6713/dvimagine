@@ -1,6 +1,12 @@
 import React, { Component } from 'react';
 import '../App.css';
 
+/*
+name, image, needs checkboxes?, phone, email, address, bio, username
+
+
+*/
+
 class Profile extends Component {
 
   constructor(props){
