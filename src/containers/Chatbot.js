@@ -142,6 +142,7 @@ class Chatbot extends Component{
     var chatbox=chat.slice(0,this.state.index+1)
     console.log(this.state.profile)
     return (
+      
       <div class="chatbot">
         
         <div id="chatContainer" 
@@ -203,7 +204,8 @@ class Chatbot extends Component{
             <div id="resultContainer">
         
               
-              <h3>Your temporary username: 65kl12</h3>
+              <h3>Your username: 65kl12</h3>
+              <p>Please note this down, if you choose to begin your help journey, give this to the services, so they can help you quicker. If not the information you've provided will be deleted automatically and not shared with anyone.</p>
               <h2>Our Recommendation</h2>
               <div id="result">
                 <div id="result-header"> 
@@ -213,10 +215,11 @@ class Chatbot extends Component{
                   </div>
                   <img src={this.state.result.image}/>
                 </div>
-                {this.state.result.body}
                 <div style={{ float:"left", clear: "both" }}
                       ref={(el) => { this.resultsEnd = el; }}>
                   </div>
+                {this.state.result.body}
+             
                 {this.state.result.contact}
 
               </div>
@@ -226,6 +229,7 @@ class Chatbot extends Component{
         </div>
         </div>
       </div>
+      
     );
   }
 

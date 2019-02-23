@@ -25,6 +25,7 @@ $dark: #908D45;
   }
 
   #chatContainer{
+    padding-bottom: 2em;
     box-shadow: 0px 0px 59px -10px rgba(0,0,0,0.75);
     height:100%;
     width:100%;
@@ -74,19 +75,21 @@ $dark: #908D45;
     
     overflow-y:scroll;
     .MuiSlider-track-3 {
-      height:5px;
+      height:8px;
     }
 
     .MuiSlider-root-1{
       width: 80%;
       clear: both;
       float: left;
-      margin-bottom: 1.5em;
+      margin-bottom: 2.5em;
       margin-top: 1.5em;
       button{
         height:40px;
+        width:40px;
+        background-color:white;
       }
-      padding: 0 1em 0 1.5em;
+      padding: 0 1em 0 2.5em;
       box-sizing:border-box;
     }
     .MuiSlider-track-3{
@@ -122,7 +125,7 @@ $dark: #908D45;
     
     svg{
       color: $answerhigh;
-      font-size: 2em;
+      font-size: 3em;
     }
     
     .submit{
