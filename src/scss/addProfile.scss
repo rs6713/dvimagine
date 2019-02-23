@@ -5,8 +5,63 @@
       outline: 0;
     }
     width: 100%;
-
+  }
+  
+  #headerBackground{
+    margin-top: 0px;
+    width: 100%;
+    margin: 0 auto;
+    background: grey;
+    padding: 10px 15px;
   }
 
+  #subHeaderBackground{
+    margin-top: 0px;
+    width: 100%;
+    margin: 0 auto;
+    background:lightgrey;
+    padding: 10px 15px;
+  }
 
+  #bodyBackground{
+    margin-top: 0px;
+    width: 70%;
+    length: 90%;
+    margin: 0 auto;
+    background: pink;
+    border-color: lightpink;
+    padding: 10px 15px;
+    border-radius: 10px;
+    overflow: auto;
+  }
+
+  #textBox{
+    display: inline-block;
+    width: 40%;
+    background-color: black;
+    padding: 10px 15px;
+    border-radius: 10px;
+    border-color: red;
+  }
+
+  #leftBox{
+    display: inline-block;
+    width: 30%;
+    margin-left: 0%;
+    background: grey;
+    padding: 10px 0px;
+    border-radius: 10px;
+  }
+
+  #checks{
+    display: inline-block;
+    font-size: 18px;
+    padding: 10px;
+    margin: 20px;
+    color: white;
+    background-color: blue;
+    border: 0;
+    border-radius: 10px;
+    border-bottom: 3px solid #333;
+  }
 }
