@@ -1,0 +1,44 @@
+.chatbot{
+  background-color: #EAFAFF;
+  text-align:center;
+  position:relative;
+  color:black;
+  height:100%;
+  width:100%;
+
+  #chat{
+    height:90%;
+    width:90%;
+    position:relative;
+    top:5%;
+    left:5%;
+    box-sizing:border-box;
+    padding:1em;
+    overflow-y:scroll;
+    background-color:white;
+    border-radius:1.5em;
+
+    .question{
+      float:right;
+      background-color:darkblue;
+      color:white;
+      border-radius:1.5em;
+      padding: 1em 2em;
+    }
+    .answer{
+      float:left;
+      display:flex;
+      max-width:80%;
+    }
+
+    .answer div{
+      background-color:lightskyblue;
+      color:white;
+      border-radius:1.5em;
+      padding: 1em 2em;  
+      margin-left:1em;   
+    }
+  }
+
+
+}

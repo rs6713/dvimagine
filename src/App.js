@@ -3,6 +3,7 @@ import logo from './logo.svg';
 import './App.css';
 import Profile from './containers/Profile'
 import Welcome from './components/Welcome'
+import Chatbot from './containers/Chatbot'
 import Charities from './containers/Charities'
 import { BrowserRouter as Router, Route, Link, Redirect, Switch } from "react-router-dom";
 
@@ -20,6 +21,9 @@ class App extends Component {
     const welcome = (props) => {
       return <Welcome {...props} />
     }
+    const chatbot = (props) => {
+      return <Chatbot {...props} />
+    }
 
     return (
       <div className="App">
@@ -29,6 +33,7 @@ class App extends Component {
             <Switch>
               <Route path="/addProfile" component={addProfile}/>
               <Route path="/charities" component={charities}/>
+              <Route path="/getstarted" component={chatbot}/>
               <Route path="/" component={welcome}/>
             </Switch>
           </div>

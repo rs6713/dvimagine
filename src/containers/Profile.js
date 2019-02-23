@@ -45,7 +45,7 @@ class Profile extends Component {
     return (
       <div className="Page addProfile">
         <h5>
-          I am a user profile
+          I am a charity profile
           </h5>
         <div>
           <h5 className="uppercase">First Name</h5>

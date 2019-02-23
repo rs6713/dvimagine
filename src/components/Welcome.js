@@ -17,7 +17,7 @@ function Welcome(props){
           <div>Are you experiencing difficulty aquiring a job?</div>
           <div>Find the services you need locally and quickly</div>
         </div>
-        <Link to="/Charities">
+        <Link to="/getstarted">
           <span class="button">Connect to Help</span>
         </Link>
       </div>
