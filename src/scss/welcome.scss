@@ -1,0 +1,44 @@
+.welcome{
+  background-color: #EAFAFF;
+  text-align:center;
+  position:relative;
+  color:black;
+  height:100%;
+  width:100%;
+
+
+  > div{
+    position:absolute;
+    top:50%;
+    transform:translateY(-50%) translateX(-50%);
+    left:50%;
+    padding: 1em;
+    width:100%;
+    box-sizing:border-box;
+  }
+
+  #questions div{
+    padding-bottom:1em;
+
+  }
+
+
+  .button{
+    border-radius:1.5em;
+    padding: 1em 2em;
+    width:auto;
+    background-color:lightskyblue;
+    color:white;
+    cursor: pointer;
+    font-weight: bold;
+    text-decoration:none;
+    display:inline-block;
+  }
+  a{
+    text-decoration: none;
+  }
+  .button:hover{
+    background-color:steelblue;
+  }
+
+}

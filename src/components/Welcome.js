@@ -8,17 +8,20 @@ function Welcome(props){
   
   return (
     <div class="welcome">
+      <div>
         <img src={logo}/>
-        <div>
+        <div  id="questions">
 
           <div>Have you had a recent falling out at home?</div>
           <div>Do you need to find somewhere to stay tonight?</div>
           <div>Are you experiencing difficulty aquiring a job?</div>
           <div>Find the services you need locally and quickly</div>
         </div>
-        <div class="button">Connect to Help</div>
-      
-      
+        <Link to="/Charities">
+          <span class="button">Connect to Help</span>
+        </Link>
+      </div>
+
     </div>
   );
 

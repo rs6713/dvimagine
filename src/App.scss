@@ -1,6 +1,14 @@
 
 .App {
   text-align: center;
+  font-size:14px;
+  height:100vh;
+  position:relative;
+  max-width:100%;
+  overflow:hidden;
+}
+.App > div{
+  height:100%;
 }
 
 .App-logo {
@@ -43,4 +51,5 @@
 
 // Imports
 @import "./scss/charities";
+@import "./scss/welcome";
 @import "./scss/addProfile";
