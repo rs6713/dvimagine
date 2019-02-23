@@ -4,12 +4,17 @@ import './App.css';
 import Profile from './containers/Profile'
 import Welcome from './components/Welcome'
 import Chatbot from './containers/Chatbot'
-import Charities from './containers/Charities'
+import Charities from './containers/Options'
 import { BrowserRouter as Router, Route, Link, Redirect, Switch } from "react-router-dom";
+import { library } from '@fortawesome/fontawesome-svg-core'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+//import { faSmileBeam, faSmile, faSadCry, faFrown, faMeh } from '@fortawesome/fontawesome-free-solid'
+import {faSmileBeam, faSmile, faSadCry, faFrown, faMeh, faTimes } from '@fortawesome/free-solid-svg-icons'
 
+
+library.add(faSmileBeam, faSmile, faSadCry, faFrown, faMeh, faTimes)
 
 class App extends Component {
-
   render() {
 
     const addProfile = (props) => {
