@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import Profile from './containers/Profile'
+import ProfileOverview from './containers/ProfileOverview'
 import Welcome from './components/Welcome'
 import Chatbot from './containers/Chatbot'
 import Charities from './containers/Options'
@@ -9,10 +10,10 @@ import { BrowserRouter as Router, Route, Link, Redirect, Switch } from "react-ro
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 //import { faSmileBeam, faSmile, faSadCry, faFrown, faMeh } from '@fortawesome/fontawesome-free-solid'
-import {faSmileBeam, faSmile, faSadCry, faFrown, faMeh, faTimes } from '@fortawesome/free-solid-svg-icons'
+import {faSmileBeam, faSmile, faSadCry, faFrown, faMeh, faTimes, faAngleUp } from '@fortawesome/free-solid-svg-icons'
 
 
-library.add(faSmileBeam, faSmile, faSadCry, faFrown, faMeh, faTimes)
+library.add(faSmileBeam, faSmile, faSadCry, faFrown, faMeh, faTimes, faAngleUp)
 
 class App extends Component {
   render() {
@@ -29,6 +30,9 @@ class App extends Component {
     const chatbot = (props) => {
       return <Chatbot {...props} />
     }
+    const profileOverview = (props) => {
+      return <ProfileOverview {...props} />
+    }
 
     return (
       <div className="App">
@@ -39,6 +43,7 @@ class App extends Component {
               <Route path="/addProfile" component={addProfile}/>
               <Route path="/charities" component={charities}/>
               <Route path="/getstarted" component={chatbot}/>
+              <Route path="/profile" component={profileOverview}/>
               <Route path="/" component={welcome}/>
             </Switch>
           </div>
