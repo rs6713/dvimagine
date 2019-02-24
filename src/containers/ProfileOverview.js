@@ -3,6 +3,7 @@ import '../App.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import joe from '../assets/joe.jpg'
 import nightstop from '../assets/nightstop.png'
+import depaul from '../assets/depaul.png'
 import map from '../assets/map.PNG'
 import CircularProgress from '@material-ui/core/CircularProgress';
 import { BrowserRouter as Router, Route, Link, Redirect, Switch } from "react-router-dom";
@@ -31,13 +32,13 @@ const RELATIONSHIPS="Relationships"
 var charities=[
   {
     name: "DePaul",
-    bio:"",
-    image: nightstop,
+    bio:"Provide emergency accommodation, supported housing and other services to help people rebuild their lives.Their mission is to end homelessness and change the lives of people affected by it. ",
+    image: depaul,
     needs:[]
   },
   {
     needs:[],
-    image:nightstop,
+    image: nightstop,
     name: "NightStop",
     bio:"Nightstop provides emergency overnight accommodation for young homeless people who are facing a night on the streets or sleeping in an unsafe place.",
     body:
@@ -141,6 +142,7 @@ class ProfileOverview extends Component {
                 </div>
                 <div>
                   <p><b>Name:</b> {this.state.firstname} {this.state.lastname}</p>
+                  <p><b>Username:</b> {this.state.username}</p>
                   <p><b>DOB:</b> {this.state.dob}</p>
                   <p><b>Phone:</b> {this.state.phone}</p>
                   <p><b>Email:</b> {this.state.email}</p>

@@ -239,6 +239,7 @@ class Analytics extends Component {
                 </div>
                 <div>
                   <p><b>Name:</b> {this.state.firstname} {this.state.lastname}</p>
+                  <p><b>Username:</b> {this.state.username}</p>
                   <p><b>DOB:</b> {this.state.dob}</p>
                   <p><b>Phone:</b> {this.state.phone}</p>
                   <p><b>Email:</b> {this.state.email}</p>
