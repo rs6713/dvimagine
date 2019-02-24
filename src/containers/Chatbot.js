@@ -35,7 +35,6 @@ var chat=[
     "Answers":[0,10],
     "answertype":"slider"
   }, 
-
   {
     type:"job",
     Question: "What is your current job status?",
@@ -142,7 +141,13 @@ class Chatbot extends Component{
     var chatbox=chat.slice(0,this.state.index+1)
     console.log(this.state.profile)
     return (
+
       <div id="phone">
+            <div id="return">
+        <Link to="profile">
+          View Council's Perspective
+        </Link>
+      </div>
       <div class="chatbot">
         
         <div id="chatContainer" 
