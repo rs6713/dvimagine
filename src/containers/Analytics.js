@@ -6,6 +6,9 @@ import nightstop from '../assets/nightstop.png'
 import map from '../assets/map.PNG'
 import CircularProgress from '@material-ui/core/CircularProgress';
 import { BrowserRouter as Router, Route, Link, Redirect, Switch } from "react-router-dom";
+import CanvasJSReact from '../canvasjs.react';
+var CanvasJS = CanvasJSReact.CanvasJS;
+var CanvasJSChart = CanvasJSReact.CanvasJSChart;
 
 /*
 name, image, needs checkboxes?, phone, email, address, bio, username
@@ -27,6 +30,10 @@ const ADDICTIONS="Addictions"
 const EMPLOYMENT="Employment"
 const MENTALHEALTH="Mental Health"
 const RELATIONSHIPS="Relationships"
+
+
+
+
 
 var charities=[
   {
@@ -74,7 +81,7 @@ var charities=[
 
 
 
-class ProfileOverview extends Component {
+class Analytics extends Component {
 
   constructor(props){
     super(props)
@@ -97,10 +104,12 @@ class ProfileOverview extends Component {
         "Charity Referral",
         "Charity Review"
       ],
-      currStage:0,
-      mode: "normal"
+      currStage:2,
+      mode: "normal",
+      tab:"history"
     }
     this.handleChange=this.handleChange.bind(this)
+    this.toggleDataSeries= this.toggleDataSeries.bind(this)
   }
 
   handleChange(field,e){
@@ -115,10 +124,99 @@ class ProfileOverview extends Component {
       [field]: value
     })
   }
+  toggleDataSeries(e){
+		if (typeof(e.dataSeries.visible) === "undefined" || e.dataSeries.visible) {
+			e.dataSeries.visible = false;
+		}
+		else{
+			e.dataSeries.visible = true;
+		}
+		this.chart.render();
+	}
 
   render() {
+
+    var options={
+      theme: "light2",
+      animationEnabled: true,
+      exportEnabled: true,
+      title: {
+      text: "Wellbeing Tracking"
+      },
+      axisY: {
+      title: "Self-Eval Score"
+      },
+      toolTip: {
+      shared: true
+      },
+      legend: {
+      verticalAlign: "center",
+      horizontalAlign: "right",
+      reversed: true,
+      cursor: "pointer",
+      itemclick: this.toggleDataSeries
+      },
+      data: [
+      {
+        type: "stackedArea",
+        name: "Emotional & Mental Health",
+        showInLegend: true,
+        xValueFormatString: "YYYY",
+        dataPoints: [
+          {x: new Date(2017, 5), y: 2},
+          {x: new Date(2018, 8), y: 5},
+          {x: new Date(2018, 11), y: 4},
+          {x: new Date(2019, 2), y: 8}
+        ]
+      },
+      {
+        type: "stackedArea",
+        name: "Physical Health",
+        showInLegend: true,
+        xValueFormatString: "YYYY",
+        dataPoints: [
+          {x: new Date(2017, 5), y: 7},
+          {x: new Date(2018, 8), y: 8},
+          {x: new Date(2018, 11), y: 5},
+          {x: new Date(2019, 2), y: 8}
+        ]
+      },
+      {
+        type: "stackedArea",
+        name: "Social Networks & Relationships",
+        showInLegend: true,
+        xValueFormatString: "YYYY",
+        dataPoints: [
+          {x: new Date(2017, 5), y: 2},
+          {x: new Date(2018, 8), y: 5},
+          {x: new Date(2018, 11), y: 5},
+          {x: new Date(2019, 2), y: 8}
+        ]
+      }
+    ]
+    };
+
+
+
+
     return (
-      <div className="Page profileOverview">
+      <div className="Page summaryOverview">
+      
+      <div className="section" id="severity2" >
+          <div className="sectionHeader">
+            <div>SEVERITY  {this.state.severity} (high)</div>
+            <div>
+              <span>Scale</span>
+              <span>
+                <span><p>1</p></span>
+                <span></span>
+                <span><p>5</p></span>
+                <span></span>
+                <span><p>10</p></span>
+              </span>
+            </div>
+          </div>
+        </div>
         
         <div className="section" id="user">
           <div className="sectionHeader">
@@ -163,9 +261,24 @@ class ProfileOverview extends Component {
           </div>
         </div>
 
-        <div className="section" id="questions">
+        <div className="section" id="summary">
           <div className="sectionHeader">
-            <div>SUGGESTED CATEGORIES BASED ON LOCATION</div>
+            <div
+              class={this.state.tab=="history"? "selected":"notselected"}
+              onClick={function(){
+                this.setState({
+                  tab:"history"
+                })
+              }.bind(this)}
+            >HISTORY LOGS</div>
+            <div
+            class={this.state.tab=="summary"? "selected":"notselected"}
+            onClick={function(){
+              this.setState({
+                tab:"summary"
+              })
+            }.bind(this)}
+            >SUMMARY</div>
             <FontAwesomeIcon icon="angle-up"
               onClick={function(){
                 this.setState({
@@ -175,94 +288,27 @@ class ProfileOverview extends Component {
               style={{transform: this.state.height["questions"]? "rotateZ(179deg) translateY(50%)": ""}}
             />
           </div>
+          {this.state.tab=="summary" &&
           <div className="sectionBody"
             style={{height: this.state.height["questions"], padding:this.state.height["questions"]? "2em": "0em 2em" }}>
-                  <div class="submitContainer">
-                  <Link to="/summary" >
-                      <div 
-                        className="submit"
-                      >
-                        Submit Log
-                      </div>
-                    </Link>
-                    <div 
-                      className="submit"
-                      onClick={function(){
-                        this.setState({mode:"submit"})
-                        setTimeout(
-                          function(){
-                            this.setState({
-                              height: {...this.state.height, resources:"auto"},
-                              currStage:1,
-                              mode:"normal"
-                            })
-                          }.bind(this)
-                          , 1000)
-                      }.bind(this)}
-                    >
-                      Request Resources
-                    </div>
-
-                    <CircularProgress style={{display: this.state.mode=="submit"?"block":"none"}}/>
-                  </div>
+              <CanvasJSChart options = {options}
+                onRef={ref => this.chart = ref}
+              />
 
           </div>
-        </div>
+          }
+          {this.state.tab=="history"&&
 
-        <div className="section" id="severity" >
-          <div className="sectionHeader">
-            <div>SEVERITY  {this.state.severity} (high)</div>
-            <div>
-              <span>Scale</span>
-              <span>
-                <span><p>1</p></span>
-                <span></span>
-                <span><p>5</p></span>
-                <span></span>
-                <span><p>10</p></span>
-              </span>
+            <div className="sectionBody"
+            style={{height: this.state.height["questions"], padding:this.state.height["questions"]? "2em": "0em 2em" }}>
+
+
             </div>
-          </div>
+        }
         </div>
 
-        <div className="section" id="resources">
-          <div className="sectionHeader">
-            <div>SUGGESTED RESOURCES</div>
-            <FontAwesomeIcon icon="angle-up"
-              onClick={function(){
-                this.setState({
-                  height:{...this.state.height, resources: this.state.height["resources"]?0:"auto"   }
-                })
-              }.bind(this)}
-              style={{transform: this.state.height["resources"]? "rotateZ(179deg) translateY(50%)": ""}}
-            />
-          </div>
-          <div className="sectionBody"
-            style={{height: this.state.height["resources"], padding:this.state.height["resources"]? "2em": "0em 2em" }}>
-              {
-                this.state.results.map(res=>
-                  <div id="result">
-                    <div id="result-header"> 
-                      <div>
-                        <h4>{res.name}</h4>
-                        <p>{res.bio} </p>
-                      </div>
-                      <img src={res.image}/>
-                    </div>
-                    <div className="refer" onClick={
-                      function(){
-                        this.setState({
-                          currStage:2,
-                        })
-                      }.bind(this)
-                    }>
-                      Refer
-                    </div>
-                  </div>
-                  )
-              }
-          </div>
-        </div>
+
+        
 
 
 
@@ -271,4 +317,4 @@ class ProfileOverview extends Component {
   }
 }
 
-export default ProfileOverview;
+export default Analytics;

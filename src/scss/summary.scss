@@ -4,7 +4,7 @@ $main: #F6C014;
 $answer: #85AFC3;//#C3BD23;
 $dark: #908D45;
 
-.profileOverview{
+.summaryOverview{
   transition: 0.5s;
   .sectionHeader{
     background-color: $answerhigh;
@@ -155,7 +155,7 @@ $dark: #908D45;
   }
 
 
-  #severity{
+  #severity2{
     .sectionHeader{
       background-color: $main;
       padding: 0.5em 1em;
@@ -213,48 +213,16 @@ $dark: #908D45;
       }
     }
   }
-
-  #resources{
-    .sectionBody{
-      display:grid;
-      grid-auto-flow: row;
-      grid-template-columns: 1fr 1fr;
-      grid-gap: 1em;
-      box-sizing: border-box;
-      max-width: 100%;
-      padding: 2em 2em;
-      max-height: 50vh;
-
-
-      #result{
-        box-shadow: 0px 0px 20px -3px rgba(0,0,0,0.6);
-        cursor: pointer;
-        padding: 0.5em 1em 0.5em 1em;
-        
-      }
-
-      #result-header{
-        display:flex;
-        text-align:left;
-        margin-bottom:0.5em;
-        img{
-          width: 80px;
-          height: 100px;
-          flex: 1;
-        }
-      }
-      .refer{
-        padding: 1em 2em;
-        border-radius:2em;
-        background-color: $main;
-        color:white;
-        font-weight:bold;
-        display:inline-block;
-      }
-      .refer:hover{
-        background-color: $dark;
-
-      }
+  #summary{
+    .selected{
+      text-decoration: underline;
+    }
+    .notselected{
+      cursor:pointer;
+      color:white;
     }
   }
+
+ 
+  
 }

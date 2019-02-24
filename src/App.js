@@ -4,6 +4,7 @@ import './App.css';
 import Profile from './containers/Profile'
 import ProfileOverview from './containers/ProfileOverview'
 import Welcome from './components/Welcome'
+import Summary from './containers/Analytics'
 import Chatbot from './containers/Chatbot'
 import Charities from './containers/Options'
 import { BrowserRouter as Router, Route, Link, Redirect, Switch } from "react-router-dom";
@@ -17,7 +18,9 @@ library.add(faSmileBeam, faSmile, faSadCry, faFrown, faMeh, faTimes, faAngleUp)
 
 class App extends Component {
   render() {
-
+    const summary = (props) => {
+      return <Summary {...props} />
+    }
     const addProfile = (props) => {
       return <Profile {...props} />
     }
@@ -42,8 +45,9 @@ class App extends Component {
             <Switch>
               <Route path="/addProfile" component={addProfile}/>
               <Route path="/charities" component={charities}/>
-              <Route path="/getstarted" component={chatbot}/>
+              <Route path="/chatbot" component={chatbot}/>
               <Route path="/profile" component={profileOverview}/>
+              <Route path="/summary" component={summary}/>
               <Route path="/" component={welcome}/>
             </Switch>
           </div>
