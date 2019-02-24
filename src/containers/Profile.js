@@ -47,7 +47,7 @@ class Profile extends Component {
 
         <div id="headerBackground">
           <h1>
-            Profile Report
+            Profile Editor
           </h1>    
         </div>
 
@@ -59,25 +59,27 @@ class Profile extends Component {
 
         
           <div id="bodyBackground">
+            <div id="grid">
+              <div id="leftBox">
+                <h7>
+                  Client Overview                          
+                </h7>    
+              </div>
 
-            <div id="leftBox">
-              <h7>
-                Answer to this first section
-              </h7>    
+              <div id="textBox">
+                <h7>
+                  Slightly depressed, left home when he was 15, has ambitions to study software engineering at university. Some more brief and sharp statements to give a feel for the client and an overview of their background and situation. May include possible goals and objectives
+                </h7>        
             </div>
-
-            <div id="textBox">
-              <h7>
-                Answer to this first section
-              </h7>        
             </div>
-
 
 
           <div>
             <h1></h1>
           </div>
 
+
+          <div id="grid">
           <div id="textBox">
             <h7>
               Place slider bar inside the cube
@@ -120,7 +122,9 @@ class Profile extends Component {
                   </div>                            
               </div>
           </div>
+
         </div>
+      </div>
     );
   }
 }
